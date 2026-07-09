@@ -1,30 +1,29 @@
-
-vẽ UX/UI web AI
-login
-trang đăng nhập <như sau>
-đăng nhập/đăng ký
--sử dụng email/gmail/SĐT.
--nút chấp nhận thỏa thuận người dùng và chính sách bảo mật khi đăng ký tài khoản
--yêu cầu gửi mã khi sử dụng email/gmail/SĐT để đăng ký
--hoặc đăng ký & đăng nhập trực tiếp qua google.
--quên mật khẩu khi đã đăng ký.
+vẽ UX/UI web AI <br>
+login <br>
+trang đăng nhập <như sau> <br>
+đăng nhập/đăng ký <br>
+-sử dụng email/gmail/SĐT. <br>
+-nút chấp nhận thỏa thuận người dùng và chính sách bảo mật khi đăng ký tài khoản<br>
+-yêu cầu gửi mã khi sử dụng email/gmail/SĐT để đăng ký<br>
+-hoặc đăng ký & đăng nhập trực tiếp qua google.<br>
+-quên mật khẩu khi đã đăng ký.<br>
 -----------------------------------
-main
-khi đăng nhập/đăng ký thành công.
-bảng điều khiển < trong này có >
-trang 1 các Agent.
-thêm thiết bị
-tạo agent
-trang 2 cấu hình giọng nói
-ngôn ngữ nói < vietnam/English >
-trang 3 lịch sử trò chuyện 
-trang 4 cài đặt
-ngôn ngữ 
-tên AI
-giới thiệu vai trò prompt của Agent
-mô hình ngôn ngữ < GPT/Qwen/deepseek/gemini >
-< lưu ý có lưu và hủy cấu hình >
------------------------------------------
+main<br>
+khi đăng nhập/đăng ký thành công.<br>
+bảng điều khiển < trong này có ><br>
+trang 1 các Agent.<br>
+thêm thiết bị<br>
+tạo agent<br>
+trang 2 cấu hình giọng nói<br>
+ngôn ngữ nói < vietnam/English ><br>
+trang 3 lịch sử trò chuyện <br>
+trang 4 cài đặt<br>
+ngôn ngữ <br>
+tên AI<br>
+giới thiệu vai trò prompt của Agent<br>
+mô hình ngôn ngữ < GPT/Qwen/deepseek/gemini ><br>
+< lưu ý có lưu và hủy cấu hình ><br>
+-----------------------------------------<br>
 
 các mảng.
 - tester/QA
