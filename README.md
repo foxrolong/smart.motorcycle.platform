@@ -3,7 +3,6 @@ login <br>
 trang đăng nhập <như sau> <br>
 đăng nhập/đăng ký <br>
 -sử dụng email/gmail/SĐT. <br>
--giao diện còn thiếu cái up sđt này , thay vì sử dụng email t nghĩ là tạo tên đn thì hợp lý hơn chứ hiện cái gmail ntn nếu mà có tranh chấp là jack việc lắm<br>
 -nút chấp nhận thỏa thuận người dùng và chính sách bảo mật khi đăng ký tài khoản<br>
 -yêu cầu gửi mã khi sử dụng email/gmail/SĐT để đăng ký<br>
 -hoặc đăng ký & đăng nhập trực tiếp qua google.<br>
