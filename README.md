@@ -1,57 +1,45 @@
-Các thông tin đối tượng và thuộc tính
-1. USERS
-Thuộc tính	Kiểu dữ liệu	Mô tả<br>
-user_id	INT	Mã người dùng<br>
-user_name VARCHAR Tên người dùng<br>
-fullname	VARCHAR	Họ tên<br>
-email	VARCHAR	Email<br>
-phone	VARCHAR	Số điện thoại<br>
-password_hash	VARCHAR	Mật khẩu đã mã hóa<br>
-google_id	VARCHAR	ID Google<br>
-avatar	VARCHAR	Ảnh đại diện<br>
-created_at	DATETIME	Ngày tạo<br>
-3. AGENT<br>
-Thuộc tính	Kiểu dữ liệu	Mô tả<br>
-agent_id	INT	Mã Agent<br>
-user_id	INT	Chủ sở hữu<br>
-model_id	INT	Mô hình AI<br>
-agent_name	VARCHAR	Tên Agent<br>
-prompt	TEXT	Vai trò của Agent<br>
-temperature	FLOAT	Độ sáng tạo<br>
-created_at	DATETIME	Ngày tạo<br>
-4. AI_MODEL<br>
-Thuộc tính	Kiểu dữ liệu<br>
-model_id	INT<br>
-model_name	VARCHAR<br>
-provider	VARCHAR<br>
-version	VARCHAR<br>
-5. CHAT_MESSAGE<br>
-Thuộc tính<br>
-message_id<br>
-session_id<br>
-sender<br>
-content<br>
-created_at<br>
-6. VOICE_SETTING<br>
-Thuộc tính<br>
-voice_id<br>
-user_id<br>
-language<br>
-speaker<br>
-speed<br>
-pitch<br>
-7. USER_SETTING<br>
-Thuộc tính<br>
-setting_id<br>
-user_id<br>
-ai_name<br>
-language<br>
-default_model<br>
-theme<br>
-8. OTP<br>
-Thuộc tính<br>
-otp_id<br>
-user_id<br>
-otp_code<br>
-expired_at<br>
-status<br>
+Yêu cầu :
+Đăng nhập
+Đăng ký
+Email/Gmail/SĐT
+Google Login
+OTP
+Quên mật khẩu
+Điều khoản
+Chính sách
+Cần lưu:
+Email/Gmail/SĐT
+Google Login
+Mật Khẩu
+Các thực thể :
+USER
+OTP
+SOCIAL_ACCOUNT
+USER_AGREEMENT
+Các thông tin của USER:
+| Tên cột       | Kiểu         | Ý nghĩa            |
+| ------------- | ------------ | ------------------ |
+| user_id       | INT (PK)     | Mã người dùng      |
+| full_name     | VARCHAR(100) | Họ tên             |
+| email         | VARCHAR(100) | Email              |
+| phone         | INT(15)      | SĐT                |
+| password_hash | VARCHAR(255) | Mật khẩu đã mã hóa |
+| status        | ENUM         | active / inactive  |
+| created_at    | DATETIME     | Ngày tạo           |
+| updated_at    | DATETIME     | Ngày cập nhật      |
+Quy trình OTP:
+Nhập Email
+↓
+Gửi OTP
+↓
+Nhập OTP
+↓
+Đăng ký thành công
+| Tên cột      | Ý nghĩa                    |
+| ------------ | -------------------------- |
+| otp_id (PK)  | Mã OTP                     |
+| user_id (FK) | Thuộc User nào             |
+| otp_code     | 123456                     |
+| purpose      | register / forgot_password |
+| expired_at   | Hết hạn                    |
+| status       | used / unused              |
