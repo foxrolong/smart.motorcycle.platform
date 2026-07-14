@@ -43,3 +43,11 @@ Nhập OTP<br>
 | purpose      | register / forgot_password |<br>
 | expired_at   | Hết hạn                    |<br>
 | status       | used / unused              |<br>
+Việc tạo tài khoản bằng Google :<br>
+Google sẽ gửi thông báo xác nhận hoặc ID(áp dụng với việc liên kết mọi tk khác) <br>
+Điều khoản:<br>
+Điều khoản<br>
+Chính sách(cuộn xuống dưới cùng)<br>
+☑ Tôi đồng ý<br>
+Điều này giúp người dùng sẽ biết được thông tin tài khoản đã lập <br>
+
