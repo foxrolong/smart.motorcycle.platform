@@ -36,6 +36,7 @@ Gửi OTP<br>
 Nhập OTP<br>
 ↓<br>
 Đăng ký thành công<br>
+<br>
 | Tên cột      | Ý nghĩa                    |
 | ------------ | -------------------------- |
 | otp_id (PK)  | Mã OTP                     |
