@@ -1,21 +1,21 @@
-Yêu cầu :
-Đăng nhập
-Đăng ký
-Email/Gmail/SĐT
-Google Login
-OTP
-Quên mật khẩu
-Điều khoản
-Chính sách
-Cần lưu:
-Email/Gmail/SĐT
-Google Login
-Mật Khẩu
-Các thực thể :
-USER
-OTP
-SOCIAL_ACCOUNT
-USER_AGREEMENT
+Yêu cầu :<br>
+Đăng nhập<br>
+Đăng ký<br>
+Email/Gmail/SĐT<br>
+Google Login<br>
+OTP<br>
+Quên mật khẩu<br>
+Điều khoản<br>
+Chính sách<br>
+Cần lưu:<br>
+Email/Gmail/SĐT<br>
+Google Login<br>
+Mật Khẩu<br>
+Các thực thể :<br>
+USER<br>
+OTP<br>
+SOCIAL_ACCOUNT<br>
+USER_AGREEMENT<br>
 Các thông tin của USER:
 | Tên cột       | Kiểu         | Ý nghĩa            |
 | ------------- | ------------ | ------------------ |
@@ -27,14 +27,14 @@ Các thông tin của USER:
 | status        | ENUM         | active / inactive  |
 | created_at    | DATETIME     | Ngày tạo           |
 | updated_at    | DATETIME     | Ngày cập nhật      |
-Quy trình OTP:
-Nhập Email
-↓
-Gửi OTP
-↓
-Nhập OTP
-↓
-Đăng ký thành công
+Quy trình OTP:<br>
+Nhập Email<br>
+↓<br>
+Gửi OTP<br>
+↓<br>
+Nhập OTP<br>
+↓<br>
+Đăng ký thành công<br>
 | Tên cột      | Ý nghĩa                    |
 | ------------ | -------------------------- |
 | otp_id (PK)  | Mã OTP                     |
