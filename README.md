@@ -37,11 +37,9 @@ Nhập OTP<br>
 ↓<br>
 Đăng ký thành công<br>
 <br>
-| Tên cột      | Ý nghĩa                    |
-| ------------ | -------------------------- |
-| otp_id (PK)  | Mã OTP                     |
-| user_id (FK) | Thuộc User nào             |
-| otp_code     | 123456                     |
-| purpose      | register / forgot_password |
-| expired_at   | Hết hạn                    |
-| status       | used / unused              |
+| otp_id (PK)  | Mã OTP                     |<br>
+| user_id (FK) | Thuộc User nào             |<br>
+| otp_code     | 123456                     |<br>
+| purpose      | register / forgot_password |<br>
+| expired_at   | Hết hạn                    |<br>
+| status       | used / unused              |<br>
