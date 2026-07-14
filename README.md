@@ -16,7 +16,7 @@ USER<br>
 OTP<br>
 SOCIAL_ACCOUNT<br>
 USER_AGREEMENT<br>
-Các thông tin của USER:
+Các thông tin của USER:<br>
 | Tên cột       | Kiểu         | Ý nghĩa            |
 | ------------- | ------------ | ------------------ |
 | user_id       | INT (PK)     | Mã người dùng      |
@@ -27,6 +27,7 @@ Các thông tin của USER:
 | status        | ENUM         | active / inactive  |
 | created_at    | DATETIME     | Ngày tạo           |
 | updated_at    | DATETIME     | Ngày cập nhật      |
+<br>
 Quy trình OTP:<br>
 Nhập Email<br>
 ↓<br>
