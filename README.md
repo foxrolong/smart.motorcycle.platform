@@ -142,15 +142,34 @@ Dashboard
 
 # 👥 Phân chia hạng mục phát triển
 
-| Mảng | Công việc |
-|------|-----------|
-| 🎨 UX/UI Design | Thiết kế giao diện, Prototype, Design System |
-| 🧪 Tester / QA | Kiểm thử chức năng, UI, API, báo lỗi |
-| 🗄 Database | Thiết kế CSDL, lưu trữ User, Agent, Chat History, Settings |
-| 💻 Frontend | Xây dựng giao diện Web, Dashboard, Responsive |
-| ⚙ Backend | API, Authentication, Agent, AI, Database |
-| 🔒 Security | *Tạm thời chưa triển khai* |
+🎨 UX/UI Design 
+<ul>
+  <li>Thiết kế giao diện, Prototype, Design System </li>
+</ul>
 
+🧪 Tester / QA 
+<ul>
+  <li>Kiểm thử chức năng, UI, API, báo lỗi </li>
+</ul>
+
+
+🗄 Database
+<ul>
+  <li>Thiết kế CSDL, lưu trữ User, Agent, Chat History, Settings  </li>
+</ul>
+
+💻 Frontend
+<ul>
+  <li>Xây dựng giao diện Web, Dashboard, Responsive </li>
+</ul>
+⚙ Backend
+<ul>
+  <li>API, Authentication, Agent, AI, Database  </li>
+</ul>
+🔒 Security
+<ul>
+  <li>*tam thoi chx can*  </li>
+</ul>
 ---
 
 # 🗄 Đề xuất Database
