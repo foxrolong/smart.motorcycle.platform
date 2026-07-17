@@ -1,4 +1,3 @@
-````md
 ## 1. Đăng nhập / Đăng ký
 
 ### Màn hình đăng nhập
@@ -235,4 +234,4 @@ Dashboard
 - Dashboard trực quan, dễ sử dụng
 - Tối ưu trải nghiệm người dùng (UX)
 - Dễ dàng mở rộng thêm tính năng trong tương lai
-````
+
