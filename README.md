@@ -1,6 +1,4 @@
 ````md
-# 📌 Thiết kế UX/UI Web AI
-
 ## 1. Đăng nhập / Đăng ký
 
 ### Màn hình đăng nhập
