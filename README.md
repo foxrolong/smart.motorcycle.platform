@@ -1,237 +1,75 @@
-## 1. Đăng nhập / Đăng ký
+## tổng quan dự án
+về mặt kết nối:
+- xe máy có cơ chế kết nối bluetooth giống như chết đọ tìm IP của  apple
+- cơ chế hoạt động khi xe máy ko có mạng như sau.
+- trên điện thoại điều khiển xe 
+1. tải app () ứng dụng sẽ chạy quyền ngầm trên ip phê duyệt yêu cầu chuyền dữ liệu qua bluetooth
+2. sau khi có quyền esp32 gửi BLE kết nối bluetooth với điện thoại
+3. ip gần đó tự động gửi dữ liện lên claud ---> sau đó báo về web app <vị trí/thông số xe> 
+- trên điện thoại vào web app +mở khóa xe
+1. web app gửi lệnh lên cloud 
+2. cloud --> gửi lệnh lên ip có mạng/app(ngầm) gần xe yêu cầu mở khóa xe.
 
-### Màn hình đăng nhập
+### lưu ý ( bảo mật )
+<p>
+- chỉ có ip được cài app chạy ngầm mới có quyền kết nối vói xe để đảm bảo xe không bị nhận lệnh từ thiết bị khác đảm bảo bảo mật</p>
 
-**Chức năng:**
 
-- Đăng nhập
-- Đăng ký tài khoản
+<p>sơ đồ đơn giản của giao thức kết nối/cơ chế hoạt động.</p>
 
-### Phương thức đăng nhập
-
-- Email
-- Gmail
-- Số điện thoại
-- Đăng nhập trực tiếp bằng **Google (OAuth)**
-
-### Đăng ký tài khoản
-
-**Cho phép đăng ký bằng:**
-
-- Email
-- Gmail
-- Số điện thoại
-
-**Yêu cầu:**
-
-- Gửi mã xác thực (OTP) qua Email/Gmail/SĐT.
-- Nhập mã xác thực để hoàn tất đăng ký.
-- Bắt buộc tích chọn:
-
-  - ☑ Tôi đồng ý với **Thỏa thuận người dùng**
-  - ☑ Tôi đồng ý với **Chính sách bảo mật**
-
-### Quên mật khẩu
-
-- Hỗ trợ lấy lại mật khẩu qua:
-  - Email
-  - Gmail
-  - Số điện thoại
-
----
-
-# 🏠 Dashboard (Sau khi đăng nhập thành công)
-
-## Trang 1 — Danh sách Agent
-
-### Chức năng
-
-- Hiển thị danh sách Agent
-- Thêm thiết bị
-- Tạo Agent mới
-- Chỉnh sửa Agent
-- Xóa Agent
-
----
-
-## Trang 2 — Cấu hình giọng nói
-
-### Ngôn ngữ
-
-- 🇻🇳 Tiếng Việt
-- 🇺🇸 English
-
-### Tùy chọn
-
-- Chọn giọng nói
-- Điều chỉnh tốc độ nói
-- Điều chỉnh cao độ
-- Nghe thử
-
----
-
-## Trang 3 — Lịch sử trò chuyện
-
-### Chức năng
-
-- Danh sách cuộc hội thoại
-- Xem chi tiết
-- Tìm kiếm
-- Xóa lịch sử
-- Lọc theo thời gian
-
----
-
-## Trang 4 — Cài đặt
-
-### Cấu hình Agent
-
-- Ngôn ngữ giao diện
-- Tên AI
-- Mô tả / Giới thiệu Agent
-- Prompt vai trò của Agent
-
-### Chọn mô hình AI
-
-- GPT
-- Qwen
-- DeepSeek
-- Gemini
-
-### Thao tác
-
-- 💾 Lưu cấu hình
-- ❌ Hủy thay đổi
-
----
-
-# 🧩 Kiến trúc chức năng
-
-```text
-Đăng nhập
+```
+ESP32 (không có WiFi/4G)
+        │
+        │ Quét BLE liên tục (BLE Scan)
+        ▼
+Tìm điện thoại đang phát BLE
         │
         ▼
-Dashboard
-│
-├── Agent
-│   ├── Danh sách Agent
-│   ├── Thêm thiết bị
-│   └── Tạo Agent
-│
-├── Voice
-│   ├── Chọn ngôn ngữ
-│   ├── Chọn giọng nói
-│   └── Nghe thử
-│
-├── Chat History
-│   ├── Danh sách hội thoại
-│   ├── Tìm kiếm
-│   └── Xóa lịch sử
-│
-└── Settings
-    ├── Tên AI
-    ├── Prompt Agent
-    ├── Model AI
-    ├── Ngôn ngữ
-    ├── Lưu
-    └── Hủy
+Nhận được:
+- MAC Bluetooth
+- Tên thiết bị
+- RSSI (cường độ tín hiệu)
+- UUID dịch vụ
+        │
+        ▼
+ESP32 kết nối BLE (lưu ý: phải có app mã xe riêng trên đt mới kết nối được )
+        │
+        ▼
+Điện thoại nhận yêu cầu
+        │
+Nếu điện thoại có Internet
+        │
+        ▼
+Điện thoại gửi HTTPS/MQTT lên Cloud
+        │
+        ▼
+Cloud gửi lệnh mở xe
 ```
 
----
-
-# 👥 Phân chia hạng mục phát triển
-
-🎨 UX/UI Design 
-<ul>
-  <li>Thiết kế giao diện, Prototype, Design System </li>
-</ul>
-
-🧪 Tester / QA 
-<ul>
-  <li>Kiểm thử chức năng, UI, API, báo lỗi </li>
-</ul>
-
-
-🗄 Database
-<ul>
-  <li>Thiết kế CSDL, lưu trữ User, Agent, Chat History, Settings  </li>
-</ul>
-
-💻 Frontend
-<ul>
-  <li>Xây dựng giao diện Web, Dashboard, Responsive </li>
-</ul>
-⚙ Backend
-<ul>
-  <li>API, Authentication, Agent, AI, Database  </li>
-</ul>
-🔒 Security
-<ul>
-  <li>*tam thoi chx can*  </li>
-</ul>
----
-
-# 🗄 Đề xuất Database
-
-## User
-
-- id
-- name
-- email
-- phone
-- password
-- avatar
-- role
-- created_at
-
-## Agent
-
-- id
-- user_id
-- name
-- description
-- prompt
-- model
-- language
-- voice
-- created_at
-
-## Device
-
-- id
-- user_id
-- device_name
-- device_type
-- status
-
-## Chat History
-
-- id
-- user_id
-- agent_id
-- question
-- answer
-- created_at
-
-## Settings
-
-- id
-- user_id
-- language
-- theme
-- ai_name
-- default_model
-
----
-
-# 🎯 Mục tiêu giao diện
-
-- Giao diện hiện đại (Modern Dashboard)
-- Thiết kế tối giản (Minimal UI)
-- Responsive cho Desktop, Tablet và Mobile
-- Hỗ trợ Dark Mode / Light Mode
-- Hiệu ứng chuyển trang mượt mà
-- Dashboard trực quan, dễ sử dụng
-- Tối ưu trải nghiệm người dùng (UX)
-- Dễ dàng mở rộng thêm tính năng trong tương lai
-
+```
+ESP32
+   │
+   ├── gửi ID xe
+   ├── gửi Challenge
+   └── gửi Token
+         │
+         ▼
+Điện thoại
+         │
+Có Internet
+         ▼
+Cloud
+         │
+Cloud xác thực
+         ▼
+Trả kết quả
+         │
+         ▼
+Điện thoại
+         │
+BLE
+         ▼
+ESP32
+         │
+Mở khóa
+```
