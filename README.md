@@ -3,7 +3,8 @@
   <b>🔒 Mở khoá </b>
   <br>
 </p>
-### tổng quan dự án 
+
+## tổng quan dự án 
 về mặt kết nối:
 - xe máy có cơ chế kết nối bluetooth giống như chết đọ tìm IP của  apple
 - cơ chế hoạt động khi xe máy ko có mạng như sau.
