@@ -6,9 +6,9 @@
 
 ## Giới thiệu
 <p>dự án này làm ra nhằm mục đích nghiên cứu, đưa AI lên chiếc xe máy của bạn, hiện tại dự án chỉ trong gia đoạn nghiên cứu và học tập, chưa áp dụng vào thực tế.</p>
-<p>nếu thấy hay, hữu ích hãy cho dự án này một ⭐</p>
+<p>nếu thấy hay, hữu ích hãy cho dự án này một ⭐ nhé!</p>
 
-<em>Nếu bạn thấy bài viết này hữu ích, hãy</em> *[Ủng hộ tác giả một ly café ☕](https://img.vietqr.io/image/MB-9710012006-compact.png?addInfo=<Donate>)* nhé! 🥺
+<em>Nếu bạn thấy bài viết này hữu ích, hãy</em> *[Ủng hộ tác giả một ly café ☕](https://img.vietqr.io/image/MB-9710012006-compact.png?addInfo=<Donate>)* 🥺
 
 ## Tổng Quan
 ### Phần Cứng
