@@ -8,7 +8,7 @@
 <p>dự án này làm ra nhằm mục đích nghiên cứu, đưa AI lên chiếc xe máy của bạn, hiện tại dự án chỉ trong gia đoạn nghiên cứu và học tập, chưa áp dụng vào thực tế.</p>
 <b>Đánh giá:</b> ⭐ nhé!
 
-<b>Donate:</b> *[Ủng hộ tác giả một ly café ☕](https://img.vietqr.io/image/MB-9710012006-compact.png?addInfo=<Donate>)*🥺
+<b>Donate:</b> <em>[Ủng hộ tác giả một ly café ☕](https://img.vietqr.io/image/MB-9710012006-compact.png?addInfo=<Donate>)</em>🥺
 
 ## Tổng Quan
 ### Phần Cứng
