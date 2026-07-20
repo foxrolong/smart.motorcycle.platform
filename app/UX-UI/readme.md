@@ -1,78 +1,113 @@
-<h1 align=center> 🏍️ Thiết Kế Web App Điều Khiển Xe Máy Từ Xa </h1>
+<h1 align=center> 🏍️ AI-integrated motorcycle </h1>
 
 xem trước giao diện thiết kế <span style="color: red;">tại đây --></span> [giao diện](https://www.figma.com/proto/lz2H8DAKdBCGt89Gml0XGS/UX-UI?node-id=0-1&t=juMv1ijA6PWIwJA4-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2007%3A114&fuid=1645916119517119414)
 
 ## 1. Mục tiêu
 
 Web app cho phép chủ xe:
-- Xem trạng thái xe (khóa <span style="color: red">[mở/tắt]</span>, vị trí, tín hiệu kết nối)
-- Gửi lệnh mở/khóa xe từ xa
-- Xem lịch sử thao tác
+- Xem trạng thái xe (khóa <span style="color: red">[mở/tắt]</span>, tín hiệu kết nối)
 - Quản lý thiết bị (thêm/xóa điện thoại được ủy quyền làm "cầu nối" BLE)
 - cho mượn xe ( mục quản lý cho mượn xe. phải được chủ xe cấp quyền và chỉ có thể <span style="color: red"> [tắt/mở] </span>, chủ xe có thể khóa bất kì lúc nào khi có vấn đề)
 
-Kiến trúc tổng thể (dựa theo sơ đồ trong README):<br>
+Kiến trúc tổng thể:<br>
 **ESP32 (BLE) ⇄ App điện thoại (cầu nối) ⇄ Cloud ⇄ Web App**.
 
----
-
-## 2. Sơ đồ luồng dữ liệu
-
-```
-[Web App] --HTTPS--> [Cloud/Backend] --Push/MQTT--> [App điện thoại gần xe]
-                                                          │ BLE
-                                                          ▼
-                                                       [ESP32 trên xe]
-```
-
-Chiều ngược lại (báo trạng thái):
-```
-[ESP32] --BLE--> [App điện thoại] --HTTPS/MQTT--> [Cloud] --WebSocket/Poll--> [Web App]
-```
-
----
-
-## 3. Các trang (pages) của Web App
-
-### Trang đăng nhập / đăng ký
+## Trang đăng nhập / đăng ký
 - Đăng nhập bằng số điện thoại/email + mật khẩu, nên có OTP hoặc 2FA vì đây là app điều khiển thiết bị vật lý.
+1. Màn hình đăng nhập
+      **Chức năng:**
 
-### Trang Dashboard (trang chính)
+      - Đăng nhập
+      - Đăng ký tài khoản
+
+2. Phương thức đăng nhập
+
+      - Email
+      - Gmail
+      - Số điện thoại
+      - Đăng nhập trực tiếp bằng **Google (OAuth)**
+
+3. Đăng ký tài khoản
+
+      **Cho phép đăng ký bằng:**
+
+      - Email
+      - Gmail
+      - Số điện thoại
+
+      **Yêu cầu:**
+
+      - Gửi mã xác thực (OTP) qua Email/Gmail/SĐT.
+      - Nhập mã xác thực để hoàn tất đăng ký.
+      - Bắt buộc tích chọn:
+
+      - ☑ Tôi đồng ý với **Thỏa thuận người dùng**
+      - ☑ Tôi đồng ý với **Chính sách bảo mật**
+
+4. Quên mật khẩu
+
+      - Hỗ trợ lấy lại mật khẩu qua:
+      - Email
+      - Gmail
+      - Số điện thoại
+      - gửi mã xác nhận tài khoản
+
+---
+
+## Trang Dashboard (trang chính)
 - Trạng thái xe: 🔒 Đã khóa / 🔓 Đã mở
-- Nút bấm lớn "Mở khóa" / "Khóa xe" (có xác nhận lại trước khi gửi lệnh)
-- Hiển thị: thời gian cập nhật trạng thái gần nhất, cường độ tín hiệu BLE, pin điện thoại đang làm cầu nối (nếu có)
+- Nút bấm lớn "Mở khóa" / "Khóa xe"
+- Hiển thị: thời gian cập nhật trạng thái gần nhất, cường độ tín hiệu BLE
 - Vị trí xe trên bản đồ (nếu có GPS trên điện thoại cầu nối hoặc module GPS riêng)
 
-### Trang Lịch sử hoạt động
+1. Trang 1
+
+   - Chức năng
+
+2. Trang 2 — Cấu hình giọng nói
+
+   - Ngôn ngữ
+      - 🇻🇳 Tiếng Việt
+      - 🇺🇸 English
+   - Tùy chọn
+3. Trang 3
+   - Chức năng
+
+4. Trang 4 — Cài đặt
+   - Thao tác
+
+      - 💾 Lưu cấu hình
+      - ❌ Hủy thay đổi
+
+## Trang Lịch sử hoạt động
 - Danh sách: thời gian, hành động (mở/khóa), thiết bị thực hiện, kết quả (thành công/thất bại)
 
-### Trang Quản lý thiết bị
+## Trang Quản lý thiết bị
 - Danh sách các điện thoại đăng nhập [chủ xe]
 - Thêm thiết bị mới ( cho mượn ) (ghép đôi bằng mã QR hoặc mã xe)
 - Thu hồi quyền truy cập của thiết bị (cho mượn)
 
-### Trang Cài đặt tài khoản
+## Trang Cài đặt tài khoản
 - Đổi mật khẩu, bật/tắt 2FA, thông báo đẩy (push notification) khi có ai mở khóa xe
 
----
 
-## 4. Thiết kế API (Backend)
 
-| Chức năng | Method | Endpoint |
-|---|---|---|
-| Đăng nhập | POST | `/api/auth/login` |
-| Lấy trạng thái xe | GET | `/api/vehicle/{id}/status` |
-| Gửi lệnh mở/khóa | POST | `/api/vehicle/{id}/command` |
-| Lịch sử thao tác | GET | `/api/vehicle/{id}/logs` |
-| Danh sách thiết bị cầu nối | GET | `/api/vehicle/{id}/bridges` |
-| Thêm thiết bị cầu nối | POST | `/api/vehicle/{id}/bridges` |
-| Nhận báo cáo trạng thái từ app cầu nối | POST | `/api/bridge/report` |
+# 🏠 Dashboard (Sau khi đăng nhập thành công)
 
-Realtime trạng thái nên dùng **WebSocket** hoặc **MQTT over WebSocket** thay vì poll liên tục, để cập nhật ngay khi có thay đổi.
+
 
 ---
+# 🎯 Mục tiêu giao diện
 
-## 5. Cơ chế xác thực & bảo mật
+- Giao diện hiện đại (Modern Dashboard)
+- Thiết kế tối giản (Minimal UI)
+- Responsive cho Desktop, Tablet và Mobile
+- Hỗ trợ Dark Mode / Light Mode
+- Dashboard trực quan, dễ sử dụng
+- Tối ưu trải nghiệm người dùng (UX)
+- Dễ dàng mở rộng thêm tính năng trong tương lai
+
+<!--## 5. Cơ chế xác thực & bảo mật
 
 Vì đây là hệ thống điều khiển thiết bị vật lý, cần nhiều lớp bảo mật hơn app thông thường:
 
@@ -120,14 +155,12 @@ src/
 │   └── api.ts
 └── store/                    // state management (Zustand/Redux)
 ```
-
--->
 ## 7. tham khảo
 
 1. Vẽ wireframe UI chi tiết (Figma) cho từng trang
 2. Định nghĩa schema database (bảng `users`, `vehicles`, `bridges`, `commands`, `logs`)
 3. Xây dựng backend API + hạ tầng MQTT trước, mock dữ liệu ESP32 để test luồng
 4. Sau khi luồng App ↔ Cloud ↔ Web ổn định, tích hợp firmware ESP32 thật
-5. Kiểm thử bảo mật (pentest) trước khi lắp lên xe thật
+5. Kiểm thử bảo mật (pentest) trước khi lắp lên xe thật-->
 
 
