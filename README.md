@@ -1,12 +1,12 @@
-# BÓC TÁCH TOÀN BỘ DỰ ÁN ESP32-S3 AI VOICE ASSISTANT (FOXROV / XIAOZHI)
+# BÓC TÁCH CHI TIẾT DỰ ÁN ESP32 AI VOICE ASSISTANT (FOXROV / XIAOZHI)
 
-> **Tài liệu bóc tách chuyên sâu**: Phân tích toàn bộ kiến trúc, tư duy thiết kế, thư viện sử dụng và bóc tách 100% mã nguồn dự án gốc tại `/run/media/long/48D4B274D4B263BA/idfiot/AI/foxrov0.2.0` để phục vụ làm lại dự án Nền tảng xe máy thông minh (Smart Motorcycle Platform) tại địa chỉ `/run/media/long/48D4B274D4B263BA/web/research/smart.motorcycle.platform`.
+> **Tài liệu bóc tách chuyên sâu**: Phân tích toàn bộ kiến trúc, tư duy thiết kế, thư viện sử dụng và bóc tách 100% mã nguồn dự án gốc từ `/run/media/long/48D4B274D4B263BA/idfiot/AI/foxrov0.2.0` để phục vụ làm lại dự án tại `/run/media/long/48D4B274D4B263BA/idfiot/AI/FOXROLONG`.
 
 ---
 
 ## 📐 PHẦN 1: TỔNG QUAN & TƯ DUY KIẾN TRÚC (ARCHITECTURAL PHILOSOPHY)
 
-Dự án gốc là hệ thống phần mềm nhúng (Firmware) cho vi điều khiển **ESP32-S3**, đóng vai trò là một **Trợ lý giọng nói AI (AI Voice Assistant)** truyền dữ liệu âm thanh hai chiều thời gian thực (real-time voice streaming) kết nối với hệ thống Server Cloud AI (sử dụng mô hình ASR SenseVoice, LLM Qwen-72B và TTS).
+Dự án này là hệ thống phần mềm nhúng (Firmware) cho vi điều khiển **ESP32-S3**, đóng vai trò là một **Trợ lý giọng nói AI (AI Voice Assistant)** truyền dữ liệu thời gian thực (real-time voice streaming) kết nối với hệ thống Server Cloud AI (sử dụng mô hình ASR SenseVoice, LLM Qwen-72B và TTS).
 
 ### 💡 1. Tư duy thiết kế chính của tác giả (Design Thinking):
 
@@ -60,19 +60,17 @@ include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 set(PROJECT_VER "0.2.0")
 project(xiaozhi)
 ```
-* **Phân tích**: Khai báo phiên bản project `0.2.0`, đặt tên ứng dụng binary là `xiaozhi`. Nạp script biên dịch chuẩn của ESP-IDF SDK.
+* **Phân tích**: Khai báo phiên bản project `0.2.0`, đặt tên ứng dụng binary là `xiaozhi`. Nạp script biên dịch chuẩn của ESP-IDF.
 
 #### 🔹 `sdkconfig.defaults` & `sdkconfig.defaults.esp32s3`
 * **Phân tích cấu hình chip**:
   * `CONFIG_BOOTLOADER_COMPILER_OPTIMIZATION_PERF=y`: Tối ưu hiệu năng Bootloader.
   * `CONFIG_BOOTLOADER_LOG_LEVEL_NONE=y`: Tắt log Bootloader để tăng tốc độ khởi động lên tối đa.
-  * `CONFIG_BOOTLOADER_SKIP_VALIDATE_ALWAYS=y`: Bỏ qua bước kiểm tra lại checksum app binary khi khởi động để rút ngắn thời gian boot.
-  * `CONFIG_BOOTLOADER_APP_ROLLBACK_ENABLE=y`: Bật tính năng Rollback tự động về phiên bản firmware cũ nếu bản OTA mới bị lỗi đơ/crash.
   * `CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_240=y`: Chạy CPU ESP32-S3 ở xung nhịp tối đa 240MHz.
   * `CONFIG_SPIRAM=y`, `CONFIG_SPIRAM_MODE_OCT=y`, `CONFIG_SPIRAM_SPEED_80M=y`: Kích hoạt Octal PSRAM chạy ở bus 80MHz.
   * `CONFIG_SPIRAM_MALLOC_ALWAYSINTERNAL=4096`: Các yêu cầu cấp phát bộ nhớ dưới 4KB sẽ ưu tiên lấy trong SRAM nội để đạt tốc độ cao nhất; bộ nhớ lớn hơn sẽ đẩy sang PSRAM.
   * `CONFIG_USE_WAKENET=y`, `CONFIG_SR_WN_WN9_NIHAOXIAOZHI_TTS=y`: Kích hoạt mô hình nhận diện giọng nói WakeNet 9 "Nihao Xiaozhi".
-  * `CONFIG_ESPTOOLPY_FLASHSIZE_16MB=y` (trong `.esp32s3`): Định cấu hình bộ nhớ Flash vật lý là 16MB, mode QIO (Quad I/O), Instruction Cache 32KB, Data Cache 64KB.
+  * `CONFIG_ESPTOOLPY_FLASHSIZE_16MB=y` (trong `.esp32s3`): Định cấu hình bộ nhớ Flash vật lý là 16MB.
 
 #### 🔹 `partitions.csv` (Bảng phân vùng bộ nhớ Flash)
 ```csv
@@ -93,10 +91,10 @@ ota_1,    app,  ota_1,   0x600000,  2M,
   * `ota_0` (2MB tại `0x400000`) & `ota_1` (2MB tại `0x600000`): Hai phân vùng luân phiên nhận bản nâng cấp phần mềm OTA.
 
 #### 🔹 `pack.py` (Script đóng gói Firmware)
-* **Tư duy tác giả**: Bình thường khi nạp ESP32 cần nạp riêng lẻ 4 file binary ở 4 địa chỉ offset khác nhau. Tác giả viết script Python này để nối tất cả các file binary (`bootloader.bin`, `partition-table.bin`, `srmodels.bin`, `xiaozhi.bin`) thành **duy nhất 1 file `xiaozhi.img` có dung lượng 4MB**, lấp đầy các khoảng trống bằng byte `0xFF`. Giúp việc nạp nhà máy (factory flashing) cực kỳ nhanh chóng. Tự động nén zip thành `xiaozhi.img.zip`.
+* **Tư duy tác giả**: Bình thường khi nạp ESP32 cần nạp riêng lẻ 4 file binary ở 4 địa chỉ offset khác nhau. Tác giả viết script Python này để nối tất cả các file binary (`bootloader.bin`, `partition-table.bin`, `srmodels.bin`, `xiaozhi.bin`) thành **duy nhất 1 file `xiaozhi.img` có dung lượng 4MB**, lấp đầy các khoảng trống bằng byte `0xFF`. Giúp việc nạp nhà máy (factory flashing) cực kỳ nhanh chóng.
 
 #### 🔹 `publish.py` (Script tự động phát hành OTA)
-* Script Python nạp môi trường `.env`, đọc phiên bản từ `CMakeLists.txt`, đẩy file `xiaozhi.bin` lên dịch vụ lưu trữ đám mây Alibaba Cloud OSS (`oss2`), tạo file `firmware.json` chứa URL và phiên bản, sau đó dùng lệnh `scp` đẩy file cấu hình lên Web Server OTA.
+* Script Python đọc phiên bản từ `CMakeLists.txt`, đẩy file `xiaozhi.bin` lên dịch vụ lưu trữ đám mây Alibaba Cloud OSS, tạo file `firmware.json` chứa URL và phiên bản, sau đó dùng lệnh `scp` đẩy file cấu hình lên Web Server OTA.
 
 ---
 
@@ -189,7 +187,7 @@ extern "C" void app_main(void)
 
 1. **Khởi tạo Kênh Duplex hoặc Simplex**:
    * Hàm `CreateSimplexChannels()` tạo 2 kênh I2S độc lập: Kênh TX dùng `I2S_NUM_0` phát loa, Kênh RX dùng `I2S_NUM_1` thu mic.
-   * Định dạng Slot I2S được cấu hình mono 32-bit slot width (`I2S_DATA_BIT_WIDTH_32BIT`, `I2S_SLOT_MODE_MONO`). Cấu hình DMA Descriptor count = 6, frame num = 240.
+   * Định dạng Slot I2S được cấu hình mono 32-bit slot width (`I2S_DATA_BIT_WIDTH_32BIT`, `I2S_SLOT_MODE_MONO`).
 
 2. **Chuyển đổi bit PCM (Write & Read)**:
    * **Ghi ra loa (`Write`)**:
@@ -339,7 +337,7 @@ sequenceDiagram
     end
 ```
 
-### 💎 Tóm tắt những điểm cốt lõi bạn cần nắm khi chuyển đổi sang dự án Smart Motorcycle Platform:
+### 💎 Tóm tắt những điểm cốt lõi bạn cần nắm:
 1. **Những cái họ DÙNG**: ESP-IDF SDK (v5.3+), ESP-SR (WakeNet9), Opus Codec, WebSocket Client, FreeRTOS, cJSON, Driver I2S Standard.
 2. **Những cái họ VIẾT (Custom Code)**:
    * **`AudioDevice`**: Trình bọc I2S chuyển đổi 16-bit PCM ↔ 32-bit I2S slot bằng phép dịch bit `<< 15` và `>> 12`.
