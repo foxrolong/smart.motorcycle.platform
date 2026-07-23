@@ -1,0 +1,77 @@
+menu "Foxro Application Configuration"
+
+    menu "RGB LED GPIO Configuration"
+        comment "Cấu hình chân GPIO điều khiển 3 đèn LED RGB (R/G/B riêng biệt)"
+        comment "Đổi theo sơ đồ phần cứng board của bạn"
+
+        config LED_R_GPIO
+            int "LED Red GPIO number"
+            default 45
+            range 0 48
+            help
+                Chân GPIO kết nối đèn LED màu ĐỎ.
+                Logic: Active HIGH (GPIO=1 => đèn BẬT).
+                Thường nối: GPIO -> điện trở 220Ω -> LED Đỏ -> GND.
+
+        config LED_G_GPIO
+            int "LED Green GPIO number"
+            default 46
+            range 0 48
+            help
+                Chân GPIO kết nối đèn LED màu XANH LÁ.
+
+        config LED_B_GPIO
+            int "LED Blue GPIO number"
+            default 47
+            range 0 48
+            help
+                Chân GPIO kết nối đèn LED màu XANH DƯƠNG.
+    endmenu
+
+    menu "Microphone I2S Configuration (INMP441)"
+        comment "Cấu hình I2S cho Micro INMP441 (thu âm 16kHz mono)"
+
+        config MIC_I2S_BCLK_GPIO
+            int "I2S Bit Clock GPIO (BCLK / SCK)"
+            default 5
+            range 0 48
+            help
+                Chân GPIO kết nối đến chân SCK (Serial Clock) của INMP441.
+
+        config MIC_I2S_WS_GPIO
+            int "I2S Word Select GPIO (WS / LRCLK)"
+            default 4
+            range 0 48
+            help
+                Chân GPIO kết nối đến chân WS (Word Select) của INMP441.
+                Xác định kênh trái/phải. Nối L/R của INMP441 vào GND để chọn kênh trái.
+
+        config MIC_I2S_DIN_GPIO
+            int "I2S Data Input GPIO (DIN / SD)"
+            default 6
+            range 0 48
+            help
+                Chân GPIO nhận dữ liệu âm thanh từ INMP441 (chân SD của INMP441).
+    endmenu
+
+    menu "Wake Word Behavior"
+        config LED_ON_DURATION_MS
+            int "LED ON duration after wake word detected (ms)"
+            default 3000
+            range 2000 4000
+            help
+                Thời gian LED sáng sau khi phát hiện từ khóa đánh thức.
+                Phạm vi: 2000ms (2 giây) đến 4000ms (4 giây).
+                Mặc định: 3000ms (3 giây).
+
+        config DEEP_SLEEP_DURATION_SEC
+            int "Deep sleep duration before re-listening (seconds)"
+            default 30
+            range 5 3600
+            help
+                Thời gian deep sleep trước khi chip tự động thức dậy và
+                lắng nghe wake word lại.
+                Đặt giá trị lớn để tiết kiệm điện tối đa.
+    endmenu
+
+endmenu

@@ -1,0 +1,37 @@
+# Foxro - Default SDK Configuration
+# Tối ưu cho ESP32-S3 với Wake Word Detection (esp-sr)
+# Sử dụng với: idf.py -DSDKCONFIG_DEFAULTS="sdkconfig.defaults;sdkconfig.defaults.esp32s3" build
+
+# ── CPU Performance ────────────────────────────────────────────────────────
+# Chạy CPU ở tần số tối đa 240MHz để WakeNet inference chạy nhanh
+CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_240=y
+
+# ── Tối ưu Bootloader ─────────────────────────────────────────────────────
+CONFIG_BOOTLOADER_LOG_LEVEL_NONE=y
+CONFIG_BOOTLOADER_COMPILER_OPTIMIZATION_PERF=y
+
+# ── NVS ───────────────────────────────────────────────────────────────────
+CONFIG_NVS_ASSERT_ERROR_CHECK=n
+
+# ── Log Level ─────────────────────────────────────────────────────────────
+# INFO level để xem được log debug trong quá trình phát triển
+CONFIG_LOG_DEFAULT_LEVEL_INFO=y
+
+# ── esp-sr: WakeNet Model ─────────────────────────────────────────────────
+# Kích hoạt WakeNet và chọn model "Hi Lily" (tương thích esp-sr ^1.9.0)
+CONFIG_USE_WAKENET=y
+CONFIG_SR_WN_WN9_HILILI_TTS=y
+
+# ── FreeRTOS ──────────────────────────────────────────────────────────────
+# Tick rate 1000Hz để vTaskDelay(pdMS_TO_TICKS(1)) = 1ms chính xác
+CONFIG_FREERTOS_HZ=1000
+
+# ── Partition Table ───────────────────────────────────────────────────────
+# Dùng partition table tùy chỉnh có entry 'model' cho WakeNet model
+CONFIG_PARTITION_TABLE_CUSTOM=y
+CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions.csv"
+CONFIG_PARTITION_TABLE_OFFSET=0x8000
+
+# ── Deep Sleep ────────────────────────────────────────────────────────────
+# Tắt hoàn toàn nguồn 32kHz OSC khi deep sleep (tiết kiệm điện ~6µA)
+CONFIG_ESP_SLEEP_RTC_USE_RC_FAST_CLOCK=y
