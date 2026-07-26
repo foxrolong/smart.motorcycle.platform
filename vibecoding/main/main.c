@@ -3,7 +3,7 @@
 
 // thư viện không thể thiếu khi lập trình esp-idf
 // thư viện chuẩn của C/C++
-#include <stdio.h> 
+#include <stdio.h>
 #include <string.h>
 // thư viện hệ điều hành FreeRTOS
 #include "freertos/FreeRTOS.h" 
