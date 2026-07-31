@@ -14,5 +14,6 @@
 ### Phần Cứng
 ```
 |   esp32 / esp32-s3   |
-| Buck DC-DC LM2596 3A |
+| Buck DC-DC LM2596 3A "mạch hạ app" |
+| |
 ```
