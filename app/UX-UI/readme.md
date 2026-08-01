@@ -30,9 +30,9 @@ Kiến trúc tổng thể:<br>
 
       - Gửi mã xác thực (OTP) qua Email/Gmail.
       - Nhập mã xác thực để hoàn tất đăng ký.
-      - Bắt buộc tích chọn:
+      <!-- - Bắt buộc tích chọn:
       - ☑ Tôi đồng ý với **Thỏa thuận người dùng**
-      - ☑ Tôi đồng ý với **Chính sách bảo mật**
+      - ☑ Tôi đồng ý với **Chính sách bảo mật** -->
 
 4. Quên mật khẩu
 
@@ -48,7 +48,7 @@ Kiến trúc tổng thể:<br>
 - Nút bấm lớn "Mở khóa" / "Khóa xe"
 - Hiển thị: thời gian cập nhật trạng thái gần nhất, cường độ tín hiệu kết nối.
 
-1. Trang 1
+<!-- 1. Trang 1
 
 2. Trang 2 — Cấu hình giọng nói
 
@@ -63,8 +63,8 @@ Kiến trúc tổng thể:<br>
    - Thao tác
 
       - 💾 Lưu cấu hình
-      - ❌ Hủy thay đổi
-
+      - ❌ Hủy thay đổi -->
+<!-- 
 ## Trang Lịch sử hoạt động
 - Danh sách: thời gian, hành động (mở/khóa), thiết bị thực hiện, kết quả (thành công/thất bại)
 
@@ -80,18 +80,18 @@ Kiến trúc tổng thể:<br>
 
 # 🏠 Dashboard (Sau khi đăng nhập thành công)
 
-
+ -->
 
 ---
-# 🎯 Mục tiêu giao diện
+## 🎯 Mục tiêu giao diện
 
-- Giao diện hiện đại (Modern Dashboard)
+<!-- - Giao diện hiện đại (Modern Dashboard)
 - Thiết kế tối giản (Minimal UI)
 - Responsive cho Desktop, Tablet và Mobile
 - Hỗ trợ Dark Mode / Light Mode
 - Dashboard trực quan, dễ sử dụng
 - Tối ưu trải nghiệm người dùng (UX)
-- Dễ dàng mở rộng thêm tính năng trong tương lai
+- Dễ dàng mở rộng thêm tính năng trong tương lai -->
 
 <!--## 5. Cơ chế xác thực & bảo mật
 
