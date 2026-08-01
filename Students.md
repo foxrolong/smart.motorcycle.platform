@@ -1,4 +1,4 @@
-## sinh viên làm gì?
+## Sinh Viên Làm Gì?
 ```
 Bước 1. Chốt Đề Tài Dự Án
 Bước 2. Vẽ Sơ Đồ & Thiết Kế Nháp (Thay cho Architect/Designer)
