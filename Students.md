@@ -19,3 +19,4 @@ Bước 5. Làm Báo Cáo (Thay cho Deployment)
 * Quay sẵn video Demo.
 * Chụp lại các sơ đồ đã vẽ ở Bước 2 để đưa vào Slide và File Báo cáo Word.
 ```
+xem cách doanh nghiệp làm dự án <span style="color: red;">tại link này --></span> [Businesses](https://github.com/foxrolong/smart.motorcycle.platform/blob/master/Businesses.md)

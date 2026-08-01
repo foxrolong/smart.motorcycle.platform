@@ -42,3 +42,5 @@ Bước 5: Đưa Cho Khách Dùng (Deployment)
 
 Ví dụ: Khách hàng bắt đầu tải được app về điện thoại và đặt trà sữa thật.
 ```
+xem cách làm dự án của sinh viên <span style="color: red;">tại link này --></span> [Students](https://github.com/foxrolong/smart.motorcycle.platform/blob/master/Students.md)
+
