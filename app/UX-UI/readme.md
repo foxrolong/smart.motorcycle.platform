@@ -1,68 +1,54 @@
 <h1 align=center> 🏍️ AI-integrated motorcycle </h1>
 
-xem trước giao diện thiết kế <span style="color: red;">tại đây --></span> [giao diện](https://www.figma.com/proto/lz2H8DAKdBCGt89Gml0XGS/UX-UI?node-id=0-1&t=juMv1ijA6PWIwJA4-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2007%3A114&fuid=1645916119517119414)
+xem trước giao diện thiết kế <span style="color: red;">tại đây --></span> [giao diện](https://www.figma.com/make/4PKpnnqDbTJug1DW5MgsBG/Gmail-Login-Registration?fullscreen=1&t=JW5dcm2HD73Htj33-1&code-node-id=0-6)
 
-## 1. Mục tiêu
+## 1. Giao diện (interface).
 
 Web app cho phép chủ xe:
 - Xem trạng thái xe (khóa <span style="color: red">[mở/tắt]</span>, tín hiệu kết nối)
-- Quản lý thiết bị (thêm/xóa điện thoại được ủy quyền làm "cầu nối" BLE)
-- cho mượn xe ( mục quản lý cho mượn xe. phải được chủ xe cấp quyền và chỉ có thể <span style="color: red"> [tắt/mở] </span>, chủ xe có thể khóa bất kì lúc nào khi có vấn đề)
+- Quản lý thiết bị (thêm/xóa thiết bị)
 
 Kiến trúc tổng thể:<br>
-**ESP32 (BLE) ⇄ App điện thoại (cầu nối) ⇄ Cloud ⇄ Web App**.
+**ESP32 ⇄ Cloud ⇄ web app**
 
 ## Trang đăng nhập / đăng ký
-- Đăng nhập bằng số điện thoại/email + mật khẩu, nên có OTP hoặc 2FA vì đây là app điều khiển thiết bị vật lý.
-1. Màn hình đăng nhập
-      **Chức năng:**
+- sử dụng phương thức đăng nhập đăng ký bằng gmail/email.
+1. Phương thức đăng nhập
 
-      - Đăng nhập
-      - Đăng ký tài khoản
-
-2. Phương thức đăng nhập
-
+   **Cho phép đăng nhập bằng:**
       - Email
       - Gmail
-      - Số điện thoại
-      - Đăng nhập trực tiếp bằng **Google (OAuth)**
 
 3. Đăng ký tài khoản
 
-      **Cho phép đăng ký bằng:**
+   **Cho phép đăng ký bằng:**
 
       - Email
       - Gmail
-      - Số điện thoại
 
-      **Yêu cầu:**
+   **Yêu cầu:**
 
-      - Gửi mã xác thực (OTP) qua Email/Gmail/SĐT.
+      - Gửi mã xác thực (OTP) qua Email/Gmail.
       - Nhập mã xác thực để hoàn tất đăng ký.
       - Bắt buộc tích chọn:
-
       - ☑ Tôi đồng ý với **Thỏa thuận người dùng**
       - ☑ Tôi đồng ý với **Chính sách bảo mật**
 
 4. Quên mật khẩu
 
+   **Chức năng:**
       - Hỗ trợ lấy lại mật khẩu qua:
-      - Email
-      - Gmail
-      - Số điện thoại
-      - gửi mã xác nhận tài khoản
+      1. Email/Gmail
+      2. gửi mã xác nhận tài khoản
 
----
 
 ## Trang Dashboard (trang chính)
+
 - Trạng thái xe: 🔒 Đã khóa / 🔓 Đã mở
 - Nút bấm lớn "Mở khóa" / "Khóa xe"
-- Hiển thị: thời gian cập nhật trạng thái gần nhất, cường độ tín hiệu BLE
-- Vị trí xe trên bản đồ (nếu có GPS trên điện thoại cầu nối hoặc module GPS riêng)
+- Hiển thị: thời gian cập nhật trạng thái gần nhất, cường độ tín hiệu kết nối.
 
 1. Trang 1
-
-   - Chức năng
 
 2. Trang 2 — Cấu hình giọng nói
 
