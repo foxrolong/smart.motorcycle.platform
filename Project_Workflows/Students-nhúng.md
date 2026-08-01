@@ -27,13 +27,13 @@ Trước khi cắm bất kỳ sợi dây nào, hãy mở file Markdown hoặc Wo
 * **Định dạng dữ liệu:** Dùng **JSON** chuẩn hóa để truyền qua lại giữa Mạch nhúng và Server.
 * **Backend & Database:** Dùng Python (FastAPI/Flask) hoặc Node.js kết hợp PostgreSQL/MongoDB để lưu lịch sử dữ liệu cảm biến.
 * **Frontend / Dashboard:** Dựng Web (HTML/CSS/JS, React) hoặc App (Flutter/React Native) để điều khiển thiết bị và vẽ biểu đồ.
-* *(Nếu thời gian gấp):* Có thể dùng các nền tảng Cloud IoT sẵn có như **Adafruit IO, Blynk, hoặc Firebase** để dựng giao diện trong vài phút.
+* *lưu ý* Có thể dùng các nền tảng Cloud IoT sẵn có như **Adafruit IO, Blynk, hoặc Firebase** để dựng giao diện trong vài phút.
 
 ## 5. Ghép nối Mô hình
 
 * **Gom gọn phần cứng**
-* **Demo trước Hội đồng**
-1. **Dự phòng Mạng:** Cấu hình sẵn code ESP32 để khi mất WiFi, nó sẽ **tự động chuyển sang kết nối Hotspot phát từ điện thoại** của bạn. Đừng bao giờ phụ thuộc vào WiFi của trường!
+* **Demo**
+1. **Dự phòng Mạng:** Cấu hình sẵn code ESP32 để khi mất WiFi, nó sẽ **tự động chuyển sang kết nối Hotspot phát từ điện thoại** của bạn.
 2. **Quay sẵn Video Demo:**
 
 xem cách doanh nghiệp làm dự án <span style="color: red;">tại link này --></span> [Businesses-nhúng](https://github.com/foxrolong/smart.motorcycle.platform/blob/master/Businesses-nhúng.md)
