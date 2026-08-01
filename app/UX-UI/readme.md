@@ -1,6 +1,6 @@
 <h1 align=center> 🏍️ AI-integrated motorcycle </h1>
 
-xem trước giao diện thiết kế <span style="color: red;">tại đây --></span> [giao diện](https://www.figma.com/make/4PKpnnqDbTJug1DW5MgsBG/Gmail-Login-Registration?fullscreen=1&t=JW5dcm2HD73Htj33-1&code-node-id=0-6)
+xem giao diện đã được thiết kế <span style="color: red;">tại đây --></span> [giao diện](https://www.figma.com/make/4PKpnnqDbTJug1DW5MgsBG/Gmail-Login-Registration?fullscreen=1&t=JW5dcm2HD73Htj33-1&code-node-id=0-6)
 
 ## 1. Giao diện (interface).
 
