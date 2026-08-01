@@ -13,7 +13,10 @@
 ## Tổng Quan
 ### Phần Cứng
 ```
-|   esp32 / esp32-s3   |
+| esp32 / esp32-s3 (bộ não)          |
 | Buck DC-DC LM2596 3A "mạch hạ app" |
-| |
+| Relay 2 kênh                       |
+| TFT 1.8 inch 128x160 ST7735        |
 ```
+## Dự án này làm gì?
+
