@@ -125,3 +125,10 @@
 // undefined + 1 //NaN
 // " \t \n" - 2 // -2
 
+//toán tử điều kiện (conditional operator) 
+// hay còn gọi là toán tử 3 ngôi (ternary operator) 
+// là toán tử duy nhất trong JavaScript có 3 toán hạng.
+// Nó thường được sử dụng như một cách rút gọn cho câu lệnh if...else.
+// Cú pháp: condition ? expr1 : expr2
+// giống như if else; nếu condition (điều kiện) đúng(true) & sai(false)
+// thì toán tử trả về giá trị của expr1, ngược lại trả về giá trị của expr2.
