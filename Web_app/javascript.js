@@ -207,4 +207,33 @@
 // nếu không, value2 sẽ được kiểm tra, v.v.'
 
 //toán tử NOT:
-// let hour = 9;
+// let hour = 9; 
+// if (!(hour >= 10 && hour <= 18)) {
+//   alert('The office is closed.');
+// } else {
+//   alert('The office is open.');
+// }
+// lưu ý khi toán tử NOT
+// Toán tử NOT (!) chuyển đổi giá trị sang kiểu boolean trước khi đảo ngược nó. 
+// Do đó, !0 trở thành true, và !1 trở thành false.
+
+// bài tập:
+let a = prompt("Nhập tài khoản", '');
+if (a == null){
+  alert('đã hủy');
+}else if(a == ''){
+  alert('đã hủy');
+}else if( a != Admin){
+  alert("I don't know you");
+}else if( a == Admin){
+  b = prompt('Nhập mật khẩu', '');
+  alert(b);
+}else if( a == null){
+  alert('đã hủy');
+}else if( a == ''){
+  alert('đã hủy');
+}else if( a != 'TheMaster'){
+  alert('Sai mật khẩu');
+}else{
+  alert('Welcome!');
+}
