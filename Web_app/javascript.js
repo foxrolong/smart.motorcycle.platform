@@ -179,3 +179,32 @@
 //   alert(0);
 // } 
 
+// toán tuer or (||) và and (&&)
+// toán tử or:
+// let hour = 9;
+// if (hour < 10 || hour > 18) {
+//   alert('The office is closed.');
+// } else {
+//   alert('The office is open.');
+// } 
+//lưu ý khi toán tử or 
+// giá trị sai đầu tiên thì được trả về ngay lập tức.
+// result = value1 || value2 || value3;
+// Nếu value1 là true, nó sẽ được trả về ngay lập tức,
+// nếu không, value2 sẽ được kiểm tra, v.v.
+
+//toán tử and:
+// let hour = 12;
+// let minute = 30; 
+// if (hour == 12 && minute == 30) {
+//   alert('The time is 12:30.');
+// } else {
+//   alert('The time is not 12:30.');
+// }
+// lưu ý khi toán tử and
+// result = value1 && value2 && value3;
+// Nếu value1 là 'false', nó sẽ được trả về ngay lập tức,
+// nếu không, value2 sẽ được kiểm tra, v.v.'
+
+//toán tử NOT:
+// let hour = 9;
