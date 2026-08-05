@@ -132,3 +132,50 @@
 // Cú pháp: condition ? expr1 : expr2
 // giống như if else; nếu condition (điều kiện) đúng(true) & sai(false)
 // thì toán tử trả về giá trị của expr1, ngược lại trả về giá trị của expr2.
+// Ví dụ:
+// let accessAllowed;
+// let age = prompt('How old are you?', 18);
+// accessAllowed = (age > 18) ? true : false;
+// alert(accessAllowed);
+
+// let age = prompt('How old are you?', 18);
+// let message = (age < 3) ? 'Hi, baby!' : //đúng thì trả về 'Hi, baby!' sai thì tiếp tục kiểm tra điều kiện tiếp theo
+//   (age < 18) ? 'Hello!' : // cũng như trên.
+//   (age < 100) ? 'Greetings!' : // cũng như trên.
+//   'What an unusual age!'; // sai tức là >100 thì trả về 'What an unusual age!'
+// alert(message);
+
+// trong truong hợp này, lưu ý: Trong ví dụ trên, 
+// bạn có thể tránh sử dụng toán tử dấu chấm hỏi 
+// vì bản thân phép so sánh đã trả về giá trị true/false
+
+// let age = prompt('How old are you?', 18);
+// let accessAllowed = (age > 18) || confirm('Do you have permission from your parents?');
+// alert(accessAllowed);
+
+//Web_app/image/image.png
+// cơ bản
+// let a = prompt("Tên gọi “chính thức” của JavaScript là gì?", '');
+// if (a == 'ECMAScript') {
+//   alert('Đúng rồi!');
+// } else {
+//   alert('Bạn không biết? “ECMAScript”!');
+// }
+// nâng cao
+// let a = prompt("Tên gọi “chính thức” của JavaScript là gì?", '');
+// (a == 'ECMAScript') ? alert('Đúng rồi!') : alert('Bạn không biết? “ECMAScript”!
+
+// Web_app/image/1image.png
+// nâng cao
+// let a = prompt("Nhập số bất kỳ", '');
+// (a == 0) ? alert(0) : (a > 0) ? alert(1) : alert(-1);
+// // cơ bản
+// let a = prompt("Nhập số bất kỳ", '');
+// if (a > 0) {
+//   alert(1);
+// } else if (a < 0) {
+//   alert(-1);
+// } else {
+//   alert(0);
+// } 
+
