@@ -255,3 +255,14 @@
 //   alert( "I don't know you" );
 // }
 
+//toán tủ hợp nhất rỗng ??
+// toán tử hợp nhất rỗng (??) 
+// trả về toán hạng bên phải khi toán hạng bên trái là null,undefined,
+// ngược lại trả về toán hạng bên trái.
+// let height = null;
+// let width = null;
+
+// // important: use parentheses
+// let area = (height ?? 100) * (width ?? 50);
+
+// alert(area); // 5000
