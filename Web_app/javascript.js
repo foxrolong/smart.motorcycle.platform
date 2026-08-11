@@ -265,3 +265,38 @@
 // let area = (height ?? 100) * (width ?? 50);
 // alert(area); // 5000
 
+// i++(hậu tố) được gọi là toán tử tăng (increment operator)
+// dạng hậu tố (postfix form) của toán tử tăng. Nó tăng giá trị của biến i lên 1 sau khi giá trị hiện tại của i được sử dụng trong biểu thức.
+// ++i(tiền tố) được gọi là toán tử tăng (increment operator)
+// dạng tiền tố (prefix form) của toán tử tăng. Nó tăng giá trị của biến i lên 1 trước khi giá trị hiện tại của i được sử dụng trong biểu thức.
+
+//=vòng lặp while và for
+cú pháp vòng lặp while:
+while (condition){
+    //code
+    //so-called "loop body" dịch: cơ thể vòng lặp
+}
+vd:
+let i = 0;
+while (i<5){
+    alert(i);
+    i++;
+}
+// giải thích: 
+// vòng lặp while sẽ tiếp tục thực hiện cho đến khi điều kiện trở nên sai.
+// trong trường hợp này, i sẽ được tăng lên 1 sau mỗi lần lặp,
+// và vòng lặp sẽ dừng lại khi i đạt đến 5.
+// trường hợp này, vòng lặp chạy từ 0 đến 4 là điều kiện đúng nếu =5 điều kiện sai và vòng lặp dừng lại.
+// i++ là dạng hậu tố nên giá trị sẽ được tăng sau khi gtri hiện tại được đem so sánh với điều kiện,
+// hiện tại i=0 so sánh với điều kiện thì 0-4 vòng lặp dừng mà ko cộng thêm
+// khi đó kết luận alert(i) sẽ hiển thị 0,1,2,3,4 đếm từ 0 sẽ là 5 lần lặp.
+
+let i = 0;
+while (i < 5) {
+  alert(i);
+  ++i;
+}
+// giải thích:
+// trong trường hợp này, ++i là dạng tiền tố nên giá trị sẽ được tăng trước khi gtri hiện tại được đem so sánh với điều kiện,
+// hiện tại i=0 tăng lên 1 so sánh với điều kiện thì 1-5 vòng lặp dừng mà ko cộng thêm
+// khi đó kết luận alert(i) sẽ hiển thị 0,1,2,3,4 đếm từ 0 sẽ là 5 lần lặp.
