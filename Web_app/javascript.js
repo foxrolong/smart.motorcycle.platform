@@ -271,6 +271,7 @@
 // dạng tiền tố (prefix form) của toán tử tăng. Nó tăng giá trị của biến i lên 1 trước khi giá trị hiện tại của i được sử dụng trong biểu thức.
 
 //=vòng lặp while và for
+
 // cú pháp vòng lặp while:
 // while (condition){
 //     //code
@@ -300,3 +301,20 @@
 // trong trường hợp này, ++i là dạng tiền tố nên giá trị sẽ được tăng trước khi gtri hiện tại được đem so sánh với điều kiện,
 // hiện tại i=0 tăng lên 1 so sánh với điều kiện thì 1-5 vòng lặp dừng mà ko cộng thêm
 // khi đó kết luận alert(i) sẽ hiển thị 0,1,2,3,4 đếm từ 0 sẽ là 5 lần lặp.
+
+// cú pháp vòng lặp do while:
+// do{
+//     // loop body  
+// } while (condition);
+// do{
+//     alert(i);
+//     i++;
+// } while (i < 5);
+// kết quả là: hiển thị 0-4  
+// vòng lặp do while thực thi lệnh trước sau đó mới kiểm tra điều kiện
+// nên dù điều kiện sai thì vòng lặp vẫn thực hiện ít nhất 1 lần.
+
+// cú pháp vòng lặp for:
+for (let i=0; i < 5; i++) {
+    alert(i);
+}
