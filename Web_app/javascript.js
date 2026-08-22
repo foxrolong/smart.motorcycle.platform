@@ -314,7 +314,14 @@
 // vòng lặp do while thực thi lệnh trước sau đó mới kiểm tra điều kiện
 // nên dù điều kiện sai thì vòng lặp vẫn thực hiện ít nhất 1 lần.
 
-// cú pháp vòng lặp for:
-for (let i=0; i < 5; i++) {
-    alert(i);
-}
+// // cú pháp vòng lặp for:
+// for (let i=0; i < 5; i++) {
+//     alert(i);
+// }
+// bắt đầu bằng ==0 sau dó kiểm tra điều kiện <5 đúng thì bắt đầu
+// cộng thêm 1 vào i và lặp lại cho đến khi điều kiện sai.
+// tại sao? vì i++ là dạng hậu tố nên i sẽ được đem so sánh 
+// trước với 5 sau đó mới cộng thêm 1 vào i.bắt
+
+
+
