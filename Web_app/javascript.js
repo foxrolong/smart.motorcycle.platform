@@ -323,7 +323,11 @@
 // tại sao? vì i++ là dạng hậu tố nên i sẽ được đem so sánh 
 // trước với 5 sau đó mới cộng thêm 1 vào i 
 
-//
+// for (let i = 0; i < 5; ++i) {
+//     alert(i);
+// }   
+
+// for (let i = 0; i < 5; i++) alert(i);  
 
 
 
