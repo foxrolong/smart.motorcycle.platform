@@ -683,5 +683,5 @@ Dự án SmartKey ESP32 + Cloudflare
 
 Theo lộ trình này, sau khoảng **3–4 tháng học đều đặn 2–3 giờ mỗi ngày**, bạn sẽ có đủ nền tảng để tự xây dựng một hệ thống web kết nối ESP32, Cloudflare Workers và cơ sở dữ liệu, thay vì chỉ ghép các ví dụ có sẵn.
 
-tạm thời gián đoạn do bên trường đang dạy quá nhiều môn lập trình nên là 
-ngưng tập trung vào SQL/.NET/Java
+
+note: 
