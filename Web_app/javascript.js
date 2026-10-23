@@ -329,4 +329,13 @@
 
 // for (let i = 0; i < 5; i++) alert(i);
 
-//
+// from 0 to 2
+// for (let i = 0; i < 3; i++) {
+//   alert( `number ${i}!` );
+// }
+
+// bài tập: Viết một vòng lặp cho phép người dùng nhập số cho đến khi họ nhập một số lớn hơn 100 hoặc nhấn hủy. Giả sử người dùng luôn nhập một số.
+// let num;
+// do {
+//   num = prompt("Nhập một số lớn hơn 100?", 0);
+// } while (num <= 100 && num !== null);
